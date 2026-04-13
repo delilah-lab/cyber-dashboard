@@ -1,76 +1,73 @@
 # 🔐 Cybersecurity Threat Intelligence Dashboard (Power BI)
 
-## 📌 Project Overview
-This is my first end-to-end **Data Analytics project** built using **Power BI**.  
-
-The dashboard analyzes cybersecurity attack data to understand attacker behavior, simulating a **Security Operations Center (SOC)** environment.  
-
-Instead of manually sifting through thousands of security logs, the dashboard transforms complex technical data into **interactive visual insights** for monitoring and investigation.
+An end-to-end data analytics project built in Power BI that simulates a SOC environment by analyzing cybersecurity attack logs and transforming them into interactive visual dashboards.
 
 ---
 
----
-
-## 🎯 Project Objectives
-- Understand real-world cybersecurity datasets  
-- Perform data cleaning and preprocessing  
-- Build a **relational data model** (Fact & Dimension tables)  
-- Design monitoring and investigation dashboards  
-- Visualize cyber attack patterns for actionable insights  
+## 🛠️ Technologies Used
+- Power BI
+- Microsoft Excel / CSV datasets
+- Python (data preprocessing – Pandas)
+- DAX (Data Analysis Expressions)
 
 ---
 
-## 🧩 Project Workflow
-
-Raw Security Logs  
-→ Data Cleaning & Structuring  
-→ Data Modeling  
-→ Visualization  
-→ Threat Monitoring  
-→ Investigation & Insights
+## ✨ Features
+- Interactive cybersecurity dashboards
+- Attack trend analysis by time, country, and technique
+- Risk classification (Low / Medium / High)
+- SOC-style threat monitoring view
+- Data-driven security insights
 
 ---
 
-## 🧹 Data Preparation (Pre-Processing)
+## 🧭 How the Project Was Built
+1. Collected raw cybersecurity log data  
+2. Cleaned and processed data using Python (Pandas)  
+3. Created risk classification rules  
+4. Structured data into relational format  
+5. Imported data into Power BI  
+6. Built dashboards using visuals + DAX measures  
+7. Tested insights for accuracy and usability  
 
-Before importing data into Power BI, the dataset was cleaned and structured.  
+---
 
-**Key steps performed:**
-- Removed missing or invalid values  
-- Converted timestamps to proper date-time format  
-- Categorized risk levels: **Low / Medium / High**  
-- Aggregated attack counts  
-- Structured data into **relational tables**  
-- Prepared dataset for analytical modeling  
+## 💡 What I Learned
+- Data cleaning and preprocessing for real-world datasets  
+- Building data models (fact & dimension tables)  
+- Creating interactive dashboards in Power BI  
+- Understanding cybersecurity attack patterns  
+- Turning raw logs into meaningful insights  
 
-### Example Transformation Logic
+---
 
-```python
-import pandas as pd
+## 🚀 How to Run the Project
+1. Download the repository  
+2. Open Power BI Desktop  
+3. Load the dataset (`clean_attacks.csv` or original dataset)  
+4. Open the `.pbix` file  
+5. Refresh data if needed  
+6. Explore dashboards interactively  
 
-# Load dataset
-df = pd.read_csv("attacks.csv")
+---
 
-# Convert timestamp to datetime
-df["timestamp"] = pd.to_datetime(df["timestamp"])
+## ⌨️ Keyboard Shortcuts (Power BI)
+- Ctrl + Click → Multi-select visuals  
+- Ctrl + C / V → Copy & paste visuals  
+- Ctrl + Z → Undo  
+- Ctrl + Shift + M → New measure  
+- F11 → Full screen mode  
 
-# Risk category classification
-def classify_risk(score):
-    if score < 4:
-        return "Low"
-    elif score < 7:
-        return "Medium"
-    else:
-        return "High"
+---
 
-df["risk_category"] = df["threat_score"].apply(classify_risk)
+## 🔮 Future Improvements
+- Add real-time threat intelligence feeds  
+- Integrate machine learning for anomaly detection  
+- Automate data pipeline (ETL process)  
+- Deploy dashboard to Power BI Service  
+- Add alert system for high-risk attacks  
 
-# Aggregate attacks by country and technique
-attack_summary = (
-    df.groupby(["country", "technique"])
-      .size()
-      .reset_index(name="attack_count")
-)
+---
 
-# Save cleaned dataset
-df.to_csv("clean_attacks.csv", index=False)
+## 📊 Project Goal
+To simulate a real-world Security Operations Center (SOC) dashboard that helps analysts quickly detect, monitor, and understand cyber threats.
